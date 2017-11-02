@@ -1,0 +1,32 @@
+{
+  "name": "cba85/php-seo-tag",
+  "type": "library",
+  "description": "A PHP package to add metadata tags for search engines and social networks to better index and display your site's content.",
+  "keywords": [
+    "php",
+    "package",
+    "seo",
+    "search-engine-optimization",
+    "social-media",
+    "open-graph"
+  ],
+  "homepage": "https://github.com/cba85/php-seo-tag/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Clément Barbaza",
+      "email": "hello@clementbarbaza.com",
+      "homepage": "https://clementbarbaza.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "~7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "4.*"
+  },
+  "autoload": {
+    "psr-4": { "SeoTag\\": "src" }
+  }
+}
