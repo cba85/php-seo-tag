@@ -136,6 +136,9 @@ class Drop
                 $phpLd['dateModified'] = $this->tags['date'];
                 $phpLd['datePublished'] = $this->tags['date'];
             }
+        } else {
+            $phpLd['dateModified'] = null;
+            $phpLd['datePublished'] = null;
         }
         // Same as
         if (!empty($this->tags['social']) and is_array($this->tags['social'])) {
@@ -144,10 +147,11 @@ class Drop
             }
         }
         // Main entity of page
-        if (!empty($this->tags['page_title'])) {
-            $phpLd['mainEntityOfPage'] = $this->tags['page_title'];
-        } else {
-            $phpLd['mainEntityOfPage'] = null;
+        if (!empty($this->tags['type']) AND !empty($this->tags['url'])) {
+            $phpLd['mainEntityOfPage'] = [
+                '@type' => $this->tags['type'],
+                '@id' => $this->tags['url'],
+            ];
         }
         // Context
         $phpLd['@context'] = "http://schema.org";
