@@ -27,9 +27,9 @@ class Drop
      *
      * @param array $tags
      */
-    public function __construct(array $tags)
+    public function __construct(array ...$tags)
     {
-        $this->tags = $tags;
+        $this->tags = call_user_func_array("array_merge", $tags);
         $this->convertDatesInXmlFormat();
     }
 
