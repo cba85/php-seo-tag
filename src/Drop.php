@@ -87,10 +87,10 @@ class Drop
         if (!empty($this->tags['image'])) {
             if (is_array($this->tags['image'])) {
                 if (!empty($this->tags['image']['path'])) {
-                    $phpLd['image'] = $this->tags['image']['path'];
+                    $phpLd['image'] = $this->tags['url'] . $this->tags['image']['path'];
                 }
             } else {
-                $phpLd['image'] = $this->tags['image'];
+                $phpLd['image'] = $this->tags['url'] . $this->tags['image'];
             }
         }
         // Publisher
@@ -104,13 +104,13 @@ class Drop
                     if (!empty($this->tags['image']['path'])) {
                         $phpLd['publisher']['logo'] = [
                             '@type' => 'ImageObject',
-                            'url' => $this->tags['image']['path'],
+                            'url' => $this->tags['url'] . $this->tags['image']['path'],
                         ];
                     }
                 } else {
                     $phpLd['publisher']['logo'] = [
                         '@type' => 'ImageObject',
-                        'url' => $this->tags['image'],
+                        'url' => $this->tags['url'] . $this->tags['image'],
                     ];
                 }
             }

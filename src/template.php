@@ -7,25 +7,30 @@
 
 <?php if (!empty($this->tags['author'])) { ?>  <meta name="author" content="<?php echo $this->tags['author'] ?>" /> <?php } ?>
 
-<?php if (!empty($this->tags['lang'])) { ?>  <meta property="og:locale" content="<?php echo $this->tags['lang'] ?>" /> <?php } ?>
+<?php if (!empty($this->tags['lang'])) { ?>  <meta property="og:locale" content="<?php echo $this->tags['lang'] ?>" /> <?php } else { ?> <meta property="og:locale" content="en_US" /> <?php } ?>
 
 <?php if (!empty($this->tags['description'])) { ?>  <meta name="description" content="<?php echo $this->tags['description'] ?>" />
   <meta property="og:description" content="<?php echo $this->tags['description'] ?>" />
  <?php } ?>
 
-<?php if (!empty($this->tags['url'])) { ?>  <link rel="canonical" href="<?php echo $this->tags['url'] ?>" />
-  <meta property="og:url" content="<?php echo $this->tags['url'] ?>" /> <?php } ?>
+<?php if (!empty($this->tags['canonical_url'])) { ?>
+  <link rel="canonical" href="<?php echo $this->tags['canonical_url'] ?>" />
+  <meta property="og:url" content="<?php echo $this->tags['canonical_url'] ?>" /> 
+<?php } else { ?>
+  <link rel="canonical" href="<?php echo $this->tags['url'] ?>" />
+  <meta property="og:url" content="<?php echo $this->tags['url'] ?>" /> 
+<?php } ?>
 
 <?php if (!empty($this->tags['site_title'])) { ?>  <meta property="og:site_name" content="<?php echo $this->tags['site_title'] ?>" /> <?php } ?>
 
 <?php if (!empty($this->tags['image'])) { ?>
 <?php if (is_array($this->tags['image'])) { ?>
-<?php if (!empty($this->tags['image']['path'])) { ?>  <meta property="og:image" content="<?php echo $this->tags['image']['path'] ?>" /> 
+<?php if (!empty($this->tags['image']['path'])) { ?>  <meta property="og:image" content="<?php echo $this->tags['url'] . $this->tags['image']['path'] ?>" /> 
 <?php if (!empty($this->tags['image']['height'])) { ?>  <meta property="og:image:height" content="<?php echo $this->tags['image']['height'] ?>" />
 <?php } ?> <?php if (!empty($this->tags['image']['width'])) { ?> <meta property="og:image:width" content="<?php echo $this->tags['image']['width'] ?>" /> <?php } ?>
 <?php } ?>
 <?php } else { ?>
-  <meta property="og:image" content="<?php echo $this->tags['image'] ?>" /><?php } ?>
+  <meta property="og:image" content="<?php echo $this->tags['url'] . $this->tags['image'] ?>" /><?php } ?>
 <?php } ?>
 
 <?php if (!empty($this->tags['date'])) { ?>
@@ -47,15 +52,15 @@
   <link rel="next" href="<?php echo $this->tags['next_page'] ?>">
 <?php } ?>
 
-<?php if (!empty($this->tags['twitter']['username'])) { ?>
+<?php if (!empty($this->tags['twitter'])) { ?>
 <?php if (!empty($this->tags['image']['path'])) { ?>
   <meta name="twitter:card" content="summary_large_image" />
 <?php } else { ?>
   <meta name="twitter:card" content="summary" />
 <?php } ?>
-  <meta name="twitter:site" content="@<?php echo $this->tags['twitter']['username'] ?>" />
-<?php if (!empty($this->tags['twitter']['username'])) { ?>
-  <meta name="twitter:creator" content="@<?php echo $this->tags['twitter']['username'] ?>" />
+  <meta name="twitter:site" content="<?php echo $this->tags['twitter']?>" />
+<?php if (!empty($this->tags['twitter'])) { ?>
+  <meta name="twitter:creator" content="<?php echo $this->tags['twitter'] ?>" />
 <?php } ?>
 <?php } ?>
 

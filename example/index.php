@@ -9,10 +9,10 @@ use SeoTag\Drop as SeoTag;
 $tags = [
     'page_title' => "The title of the page",
     'description' => "The description of the page",
-    'image' => "https://www.example.com/img/image.jpg",
+    'image' => "/img/image.jpg",
     /*
     'image' => [
-        'path' => "https://www.example.com/img/image.jpg",
+        'path' => "/img/image.jpg",
         'height' => "350",
         'width' => "250",
     ],
@@ -26,16 +26,15 @@ $tags = [
     */
     'site_title' => "The title of the website",
     'author' => "Clement",
-    'twitter' => [
-        'username' => "jack",
-    ],
+    'twitter' => "@jack",
     'facebook' => [
         'admins' => "Mark",
         'publisher' => "Priscilla",
         'app_id' => "123456789",
     ],
     'url' => "https://www.example.com",
-    'type' => "WebSite", // or "WebPage" or "BlogPosting"
+    'canonical_url' => "https://www.example.com/canonical",
+    'type' => "WebSite",
     'social' => [
         "https://twitter.com/user",
         "https://www.facebook.com/user",
@@ -57,8 +56,8 @@ $tags = [
 ];
 
 $seotag = new SeoTag($tags);
-$uniqueArray = $seotag->render();
-print_r($uniqueArray);
+$seo = $seotag->render();
+print_r($seo);
 
 /*
  Multiples arrays (for site tags and page tags for example)
@@ -67,9 +66,7 @@ $siteTags = [
     'date' => "2017-11-02 12:30:00",
     'site_title' => "The title of the website",
     'author' => "Clement",
-    'twitter' => [
-        'username' => "jack",
-    ],
+    'twitter' => "jack",
     'facebook' => [
         'admins' => "Mark",
         'publisher' => "Priscilla",
@@ -96,14 +93,15 @@ $siteTags = [
 $pageTags = [
     'page_title' => "The title of the page",
     'description' => "The description of the page",
-    'image' => "https://www.example.com/img/image.jpg",
+    'image' => "/img/image.jpg",
     'date' => "2017-11-02 12:30:00",
     'url' => "https://www.example.com",
-    'type' => "WebSite", // or "WebPage" or "BlogPosting"
+    'canonical_url' => "https://www.example.com/canonical",
+    'type' => "WebSite",
     'previous_page' => "https://www.example.com/post/1",
     'next_page' => "https://www.example.com/post/2",
 ];
 
 $seotag = new SeoTag($siteTags, $pageTags);
-$multipleArrays = $seotag->render();
-print_r($multipleArrays);
+$seo = $seotag->render();
+print_r($seo);
