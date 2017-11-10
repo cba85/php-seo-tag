@@ -1,8 +1,6 @@
 # PHP SEO tag
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/cba85/php-seo-tag.svg?style=flat-square)](https://packagist.org/packages/cba85/php-seo-tag)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/cba85/php-seo-tag.svg?style=flat-square)](https://packagist.org/packages/cba85/php-seo-tag)
 
 A PHP package inspired by [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag) to add metadata tags for search engines and social networks to better index and display your site's content.
 
@@ -31,9 +29,11 @@ composer require cba85/php-seo-tag
 ## Usage
 
 ```php
+use Seo\Tag as Seo;
+
 $tags = []; // Your tags
-$seotag = new SeoTag($tags);
-$seo = $seotag->render();
+$seoTag = new Seo($tags);
+$seo = $seoTag->render();
 ```
 
 The package will return the HTML metatags depending of your parameters.
