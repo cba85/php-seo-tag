@@ -1,7 +1,7 @@
 <?php
 require(dirname(__DIR__) . '/vendor/autoload.php');
 
-use SeoTag\Drop as SeoTag;
+use Seo\Tag as Seo;
 
 /*
  Unique array
@@ -55,8 +55,8 @@ $tags = [
     'next_page' => "https://www.example.com/post/2",
 ];
 
-$seotag = new SeoTag($tags);
-$seo = $seotag->render();
+$seoTag = new Seo($tags);
+$seo = $seoTag->render();
 print_r($seo);
 
 /*
@@ -82,12 +82,6 @@ $siteTags = [
     'lang' => "fr_FR",
     'generator' => "My awesome framework",
     'google_site_verification' => '123456789',
-    'webmaster_verifications' => [
-        'google' => "123456789",
-        'bing' => "123456789",
-        'alexa' => "123456789",
-        'yandex' => "123456789",
-    ],
 ];
 
 $pageTags = [
@@ -102,6 +96,6 @@ $pageTags = [
     'next_page' => "https://www.example.com/post/2",
 ];
 
-$seotag = new SeoTag($siteTags, $pageTags);
-$seo = $seotag->render();
+$seoTag = new Seo($siteTags, $pageTags);
+$seo = $seoTag->render();
 print_r($seo);

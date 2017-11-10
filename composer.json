@@ -27,6 +27,6 @@
     "phpunit/phpunit" : "4.*"
   },
   "autoload": {
-    "psr-4": { "SeoTag\\": "src" }
+    "psr-4": { "Seo\\": "src" }
   }
 }
