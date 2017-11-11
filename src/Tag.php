@@ -118,12 +118,13 @@ class Tag
             $html .= $this->createMetaProperty('"og:description', $this->tags['description']);
         }
         // URL
-        if (!empty($this->tags['canonical_url'])) {
-            $html .= $this->createLink('canonical', $this->tags['canonical_url']);
-            $html .= $this->createMetaProperty('og:url', $this->tags['canonical_url']);
-        } else {
-            $html .= $this->createLink('canonical', $this->tags['url']);
+        if (!empty($this->tags['url'])) {
             $html .= $this->createMetaProperty('og:url', $this->tags['url']);
+            if (!empty($this->tags['canonical_url'])) {
+                $html .= $this->createLink('canonical', $this->tags['canonical_url']);
+            } else {
+                $html .= $this->createLink('canonical', $this->tags['url']);  
+            }
         }
         // Site title
         if (!empty($this->tags['site_title'])) {
