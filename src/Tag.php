@@ -1,5 +1,6 @@
 <?php
 namespace Seo;
+
 use DateTime;
 
 /**
