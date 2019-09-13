@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use SeoTag\Drop as SeoTag;
+use SeoTag\Tag as SeoTag;
 
 class SeoTagTest extends TestCase
 {
